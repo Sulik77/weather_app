@@ -3,8 +3,7 @@
 <p>This project is a simple web application built using Flask, a micro web framework for Python. The application exposes a RESTful API that allows users to interact with a backend service to perform various operations. It serves as a starting point for developing more complex applications and is designed with scalability and maintainability in mind.</p>
 <h2>Features</h2>
 <ul>
-<li><strong>RESTful API</strong>: Implements standard HTTP methods (GET, POST, PUT, DELETE) for accessing and manipulating resources.</li>
-<li><strong>Data Persistence</strong>: Utilizes a lightweight database (e.g., SQLite) for storing data.</li>
+<li> Implements standard HTTP methods (GET, POST,) for accessing and manipulating resources.</li>
 <li><strong>User Authentication</strong>: Basic user authentication for secure access to the API endpoints.</li>
 <li><strong>Error Handling</strong>: Provides meaningful error messages and status codes for better client-side handling.</li>
 <li><strong>Documentation</strong>: Includes detailed API documentation using Swagger or similar tools for easy integration and testing.</li>
