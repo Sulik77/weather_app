@@ -1,0 +1,18 @@
+body {
+    background-image: url('https://i.pinimg.com/originals/44/47/24/444724c6b189f8c5ad6e78dd4d793bf3.jpg');
+    background-size: cover;
+    background-position: center;
+    color: black; /* Цвет текста для лучшей читаемости на фоне */
+}
+
+h1 {
+    color: #343a40;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input {
+    margin-right: 10px;
+}

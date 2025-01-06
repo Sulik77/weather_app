@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Погода</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Получите информацию о погоде</h1>
+        <form method="POST">
+            <input type="text" name="city" placeholder="Введите название города" required>
+            <button type="submit">Получить погоду</button>
+        </form>
+
+        {% if current_weather %}
+            <h2>Текущая погода в {{ current_weather['name'] }}</h2>
+            <p>Температура: {{ current_weather['main']['temp'] }}°C</p>
+            <p>Погода: {{ current_weather['weather'][0]['description'] }}</p>
+            <h3>Прогноз на 5 дней:</h3>
+            <ul>
+                {% for entry in forecast['list'] %}
+                    <li>{{ entry['dt_txt'] }}: {{ entry['main']['temp'] }}°C, {{ entry['weather'][0]['description'] }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        
+        <div id="map" style="height: 500px;"></div>
+    </div>
+
+    <script>
+        var map = L.map('map').setView([51.505, -0.09], 7); // Замените на нужные координаты
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 26,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+        
+        // Добавление маркера на карте
+        {% if current_weather %}
+            var marker = L.marker([{{ current_weather['coord']['lat'] }}, {{ current_weather['coord']['lon'] }}]).addTo(map)
+                .bindPopup('Погода в {{ current_weather['name'] }}')
+                .openPopup();
+            map.setView([{{ current_weather['coord']['lat'] }}, {{ current_weather['coord']['lon'] }}], 10);
+        {% endif %}
+    </script>
+</body>
+</html>
