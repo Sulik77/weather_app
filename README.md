@@ -1,5 +1,3 @@
-<p>Certainly! Below is a sample description for a Flask-based application using an API, which you can include in your GitHub README file. Feel free to customize it to better fit your project's specifics.</p>
-<hr>
 <h1>Flask API Application</h1>
 <h2>Overview</h2>
 <p>This project is a simple web application built using Flask, a micro web framework for Python. The application exposes a RESTful API that allows users to interact with a backend service to perform various operations. It serves as a starting point for developing more complex applications and is designed with scalability and maintainability in mind.</p>
